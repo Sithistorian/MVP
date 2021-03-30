@@ -1,5 +1,5 @@
 let saphire = {
-  nam: 'Saphire',
+  name: 'Saphire',
   rank: {rank: 'novice', value: 3},
   attributes: {smarts: 'd6', spirit: 'd6', agility: 'd6', strength: 'd6',vigor: 'd6'},
   derivedStats: {pace: 6, parry: '6 (2)', toughness: '5 (2)'},

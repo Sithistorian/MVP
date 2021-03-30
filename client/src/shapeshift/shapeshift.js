@@ -72,6 +72,6 @@ let shapeShift = function (character, beast, raise = false) {
 
 }
 
-let transforming = alterAttributes(saphire.saphire, beast.alligator)
-
-console.log(shapeShift(saphire.saphire, beast.alligator, true))
+module.exports = {
+  shapeShift
+}

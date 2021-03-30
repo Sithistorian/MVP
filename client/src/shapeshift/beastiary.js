@@ -56,7 +56,8 @@ let venSnake = {
   attributes: {smarts: 'd4', spirit: 'd6', strength: 'd4 - 2', agility: 'd8', vigor: 'd6'},
   derivedStats: {pace: '4', parry: '6', toughness: 2},
   specialAbilities: {bite:'str + 2', Poison: 'GM chooses poison pg (128)'},
-  armor: 0
+  armor: 0,
+  parryModifier: 0
 }
 
 module.exports = {
