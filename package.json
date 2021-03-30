@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.js --watch",
-    "start": "nodemon server/index.js"
+    "build": "webpack --watch",
+    "start": "nodemon server -w"
   },
   "repository": {
     "type": "git",
@@ -20,9 +20,20 @@
   },
   "homepage": "https://github.com/Sithistorian/MVP#readme",
   "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.13.13",
+    "babel": "^6.23.0",
+    "babel-core": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "babel-preset-env": "^7.12.11",
     "express": "^4.17.1",
     "nodemon": "^2.0.7",
     "webpack": "^5.28.0",
     "webpack-cli": "^4.6.0"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
