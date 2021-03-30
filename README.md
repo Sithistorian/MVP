@@ -1,2 +1,3 @@
 # MVP
-Transfinite Calculator
+
+Shape Shift Power
