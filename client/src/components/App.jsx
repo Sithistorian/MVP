@@ -10,8 +10,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       character: props.saphire,
-      shifted: false,
-      beast: null
+      shifted: false
     };
     //Bindings
     this.onSubmit = this.onSubmit.bind(this);
@@ -19,8 +18,11 @@ class App extends React.Component {
 
   onSubmit (e) {
     e.preventDefault();
+    let character = this.state.character;
+    let beast = this.props.beastiary[document.getElementById("selectedBeast").value];
     this.setState({
-      beast: this.props.shapeshift(this.state.character, this.props.beastiary[document.getElementById("selectedBeast").value])
+      character: this.props.shapeshift(character, beast) ? this.props.shapeshift(character, beast) : this.props.saphire,
+      rankTooLow: true
     })
   }
 

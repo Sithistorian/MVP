@@ -1,4 +1,4 @@
-let saphire = {
+const saphire = {
   name: 'Saphire',
   rank: {rank: 'novice', value: 3},
   attributes: {Smarts: 'd6', Spirit: 'd6', Agility: 'd6', Strength: 'd6', Vigor: 'd6'},
