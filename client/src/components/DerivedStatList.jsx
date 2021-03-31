@@ -5,10 +5,10 @@ const DerivedStatList = function ({ derivedStats }) {
 
   return (
   <React.Fragment>
-    <div>DerivedStats</div>
+    <h3>DerivedStats</h3>
     {
       Object.entries(derivedStats).map(derivedStat => {
-        return <DerivedStatListEntry derivedStat={derivedStat}/>
+        return <DerivedStatListEntry derivedStat={derivedStat} key={derivedStat}/>
       })
     }
   </React.Fragment>

@@ -5,10 +5,10 @@ const  SkillList = function ({ skills }) {
 
   return (
   <React.Fragment>
-    <div> Skills</div>
+    <h3> Skills</h3>
     {
       Object.entries(skills).map(skill => {
-        return <SkillListEntry skill={skill}/>
+        return <SkillListEntry skill={skill} key={skill}/>
       })
     }
   </React.Fragment>

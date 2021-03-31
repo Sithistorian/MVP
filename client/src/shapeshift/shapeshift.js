@@ -11,13 +11,13 @@ let increaseDieType = function (die) {
 let alterAttributes = function (character, beast) {
   let copy = {...character};
 
-  copy.attributes.strength = beast.attributes.strength;
-  copy.attributes.agility = beast.attributes.agility;
-  copy.armor = beast.armor;
-  copy.parryModifier = beast.parryModifier;
+  copy.attributes.Strength = beast.attributes.strength;
+  copy.attributes.Agility = beast.attributes.agility;
+  copy.Armor = beast.armor;
+  copy.ParryModifier = beast.parryModifier;
 
-  if (parseInt(copy.attributes.vigor.substring(1)) < parseInt(beast.attributes.vigor.substring(1))) {
-    copy.attributes.vigor = beast.attributes.vigor;
+  if (parseInt(copy.attributes.Vigor.substring(1)) < parseInt(beast.attributes.vigor.substring(1))) {
+    copy.attributes.Vigor = beast.attributes.vigor;
   }
 
 
@@ -27,7 +27,7 @@ let alterAttributes = function (character, beast) {
 let alterSkills = function (character, beast) {
   copy = {...character};
 
-  let alterableSkills = ['athletics', 'fighting', 'shooting', 'stealth']
+  let alterableSkills = ['Athletics', 'Fighting', 'Shooting', 'Stealth']
 
   for (let i = 0; i < alterableSkills.length; i++) {
     let skill = alterableSkills[i]
@@ -44,9 +44,9 @@ let alterDerivedStats = function (character, beast) {
    copy = {...character};
 
    copy.derivedStats = {
-     pace: beast.derivedStats.pace,
-     parry: `${2 + (parseInt(copy.skills.fighting.substring(1)))/2} (${copy.parryModifier})`,
-     toughness: `${2 + (parseInt(copy.attributes.vigor.substring(1)))/2} (${copy.armor})`
+     Pace: beast.derivedStats.pace,
+     Parry: `${2 + (parseInt(copy.skills.Fighting.substring(1)))/2} (${copy.ParryModifier})`,
+     Toughness: `${2 + (parseInt(copy.attributes.Vigor.substring(1)))/2} (${copy.Armor})`
    }
    return copy;
 }
@@ -65,8 +65,8 @@ let shapeShift = function (character, beast, raise = false) {
   if (!raise) {
     return copy;
   } else {
-    copy.attributes.strength = increaseDieType(copy.attributes.strength);
-    copy.attributes.vigor = increaseDieType(copy.attributes.vigor);
+    copy.attributes.Strength = increaseDieType(copy.attributes.strength);
+    copy.attributes.Vigor = increaseDieType(copy.attributes.vigor);
     return copy;
   }
 

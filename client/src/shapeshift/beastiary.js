@@ -50,7 +50,7 @@ let eagle = {
 
 let venSnake = {
   rank: {rank: 'seasoned', value: 2, cost: 4},
-  name: 'venomous_snake',
+  name: 'Venomous Snake',
   size: -3,
   skills: {athletics: 'd6', fighting: 'd8', notice: 'd12', stealth: 'd8'},
   attributes: {smarts: 'd4', spirit: 'd6', strength: 'd4 - 2', agility: 'd8', vigor: 'd6'},

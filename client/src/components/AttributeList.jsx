@@ -5,10 +5,10 @@ const AttributeList = function ({ attributes }) {
 
   return (
   <React.Fragment>
-    <div>Attributes</div>
+    <h3>Attributes</h3>
     {
       Object.entries(attributes).map(attribute => {
-        return <AttributeListEntry attribute={attribute}/>
+        return <AttributeListEntry attribute={attribute} key={attribute}/>
       })
     }
   </React.Fragment>

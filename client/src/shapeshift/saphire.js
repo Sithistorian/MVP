@@ -1,13 +1,12 @@
 let saphire = {
   name: 'Saphire',
   rank: {rank: 'novice', value: 3},
-  attributes: {smarts: 'd6', spirit: 'd6', agility: 'd6', strength: 'd6',vigor: 'd6'},
-  derivedStats: {pace: 6, parry: '6 (2)', toughness: '5 (2)'},
-  skills: {athletics: 'd6', commonKnowledge: 'd4', notice: 'd4', persuasion: 'd4', stealth: 'd6', focus: 'd6',
-  theivery: 'd4', performance: 'd4', shooting: 'd4', fighting: 'd4', intimidation: 'd6', boating: 'd6'},
-  encumberance: 40,
-  armor: 2,
-  parryModifier: 2
+  attributes: {Smarts: 'd6', Spirit: 'd6', Agility: 'd6', Strength: 'd6', Vigor: 'd6'},
+  derivedStats: {Pace: 6, Parry: '6 (2)', Toughness: '5 (2)', Encumberance: 40},
+  skills: {Athletics: 'd6', 'Common Knowledge': 'd4', Notice: 'd4', Persuasion: 'd4', Stealth: 'd6', Focus: 'd6',
+  Theivery: 'd4', Performance: 'd4', Shooting: 'd4', Fighting: 'd4', Intimidation: 'd6', Boating: 'd6'},
+  Armor: 2,
+  ParryModifier: 2
 }
 
 module.exports = {
