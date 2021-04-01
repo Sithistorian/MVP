@@ -21,6 +21,8 @@ CREATE TABLE Characters (
   portOfOrigin VARCHAR(100),
   characterrank VARCHAR(20),
   spellDuration INTEGER,
+  armor INTEGER,
+  parryModifier INTEGER,
   PRIMARY KEY (id)
 );
 
@@ -262,8 +264,8 @@ CREATE TABLE EquipmentAttributeBonus (
 -- Test Data
 -- ---
 
-INSERT INTO Characters (name, description, xp, race, portOfOrigin, characterRank, spellDuration) VALUES
-('Saphire','Changling',6000,'Changling','Home','Novice',3);
+INSERT INTO Characters (name, description, xp, race, portOfOrigin, characterRank, spellDuration, armor, parryModifier) VALUES
+('Saphire','Changling',6000,'Changling','Home','Novice',3, 2, 2);
 
 INSERT INTO Skills (skillName) VALUES
 ('Athletics'),
@@ -316,9 +318,17 @@ INSERT INTO CharacterSkills (charID, skillID, skilllevel) VALUES
 -- INSERT INTO Equipment Skill Bonus (id,skillID,bonus,equipID) VALUES
 -- ('','','','');
 INSERT INTO Attributes (name) VALUES
-('Strength');
+('Agility'),
+('Smarts'),
+('Spirit'),
+('Strength'),
+('Vigor');
 INSERT INTO CharacterAttributes (charID, attributeID, attlevel) VALUES
-(1, 1, 'd6');
+(1, 1, 'd6'),
+(1, 2, 'd6'),
+(1, 3, 'd6'),
+(1, 4, 'd6'),
+(1, 5, 'd6');
 -- INSERT INTO Equipment Hinderance Bonus (id,hinderanceID,equipID) VALUES
 -- ('','','');
 -- INSERT INTO Equipment Edge Bonus (id,edgeID,equipID) VALUES
