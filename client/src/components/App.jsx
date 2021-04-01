@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import AttributeList from './AttributeList';
 import SkillList from './SkillList';
 import DerivedStatList from './DerivedStatList';
@@ -12,13 +13,45 @@ class App extends React.Component {
       character: props.saphire,
       shifted: false,
       beastAttempt: 'Saphire',
-      raise: false
+      raise: 0
     };
     //Bindings
     this.onSubmit = this.onSubmit.bind(this);
     this.radioChange = this.radioChange.bind(this);
+    this.getCharacter = this.getCharacter.bind(this);
+    this.updateSpellDuration = this.updateSpellDuration.bind(this);
   }
 
+  //Requests
+  getCharacter(name) {
+    axios.get(`/Characters?name=${name}`)
+      .then(response => {
+        console.log(response.data)
+        this.setState({
+          character: response.data,
+          spellDuration: response.data.spellDuration
+        })
+      })
+      .catch(error => {
+        console.error(error);
+      })
+  }
+
+  updateSpellDuration(name, count) {
+    axios.put(`/Characters?name=${name}&count=${count}`)
+      .then(response => {
+        console.log(response);
+        this.getCharacter(name);
+      })
+      .catch(error => {
+        console.error(error);
+      })
+  }
+
+  componentDidMount() {
+    this.getCharacter('Saphire');
+    this.updateSpellDuration('Saphire', 0);
+  }
 
   //Handlers
 

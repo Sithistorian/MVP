@@ -49,7 +49,34 @@ const getCharacter = function (name, callback) {
   })
 }
 
+const updateSpellDuration = function (name, count, callback) {
+  let queryString = `UPDATE Characters SET spellDuration= ? WHERE name= ?`;
+  connection.query(queryString, [count, name], (err, data) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, data);
+    }
+  })
+}
 
+
+module.exports = {
+  getSkills,
+  getAttributes,
+  getCharacter,
+  updateSpellDuration
+}
+
+//TESTING
+
+// updateSpellDuration('Saphire', 10, (err, data) => {
+//   if (err) {
+//     console.log(err)
+//   } else {
+//     console.log(data);
+//   }
+// })
 
 // getSkills('Saphire', (err, data) => {
 //   if (err) {
@@ -74,9 +101,3 @@ const getCharacter = function (name, callback) {
 //       console.log(data);
 //     }
 //   })
-
-module.exports = {
-  getSkills,
-  getAttributes,
-  getCharacter
-}

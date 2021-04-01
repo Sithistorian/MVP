@@ -20,6 +20,7 @@ const Dropdown = function ({ options, onSubmit, beastAttempt, rankTooLow, onChan
       Yes<input type="radio" value={1} checked={raise == 1} onChange={onChange}/>
       No<input type="radio" value={0} checked={raise == 0} onChange={onChange}/>
     </div>
+    {/* <input type /> */}
     </form>
   )
 }

@@ -13,7 +13,7 @@ const getDerivedStats = function (attributes, skills, character) {
 
   let result = {Pace: 6};
 
-  result.Parry = `${2 + (parseInt(skills.Fighting.substring(1)))/2} (${character.ParryModifier})`
+  result.Parry = `${2 + (parseInt(skills.Fighting.substring(1)))/2} (${character.parryModifier})`
 
   result.Toughness = `${2 + (parseInt(attributes.Vigor.substring(1)))/2} (${character.armor})`
 
@@ -68,4 +68,15 @@ db.getCharacter(req.query.name, (err, character) => {
 
 
 
+})
+
+app.put('/Characters/', (req, res) => {
+  db.updateSpellDuration(req.query.name, parseInt(req.query.count), (err) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log('Duration Updated');
+      res.status(200).send('Duration Updated')
+    }
+  })
 })

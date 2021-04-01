@@ -33,6 +33,7 @@
     "webpack-cli": "^4.6.0"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "react": "^17.0.2",
