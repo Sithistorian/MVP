@@ -18,8 +18,10 @@ let alterAttributes = function (character, beast) {
   copy.Armor = beast.armor;
   copy.ParryModifier = beast.parryModifier;
 
-  if (parseInt(copy.attributes.Vigor.substring(1)) < parseInt(beast.attributes.vigor.substring(1))) {
+  if (parseInt(character.attributes.Vigor.substring(1)) < parseInt(beast.attributes.vigor.substring(1))) {
     copy.attributes.Vigor = beast.attributes.vigor;
+  } else {
+    copy.attributes.Vigor = character.attributes.Vigor;
   }
   return copy;
 }
@@ -51,7 +53,7 @@ let alterDerivedStats = function (character, beast) {
    return copy;
 }
 
-let shapeShift = function (character, beast, raise = false) {
+let shapeShift = function (character, beast, raise = 0) {
 
   if (character.rank.value < beast.rank.value) {
     console.log(`Your character's rank is too low`)
@@ -62,12 +64,12 @@ let shapeShift = function (character, beast, raise = false) {
   copy = alterSkills(copy, beast);
   copy = alterDerivedStats(copy, beast);
 
-  if (!raise) {
+  if (raise === 0) {
     console.log('copy:', copy, 'SAPHIRE:', character)
     return copy;
   } else {
-    copy.attributes.Strength = increaseDieType(copy.attributes.strength);
-    copy.attributes.Vigor = increaseDieType(copy.attributes.vigor);
+    copy.attributes.Strength = increaseDieType(beast.attributes.strength);
+    copy.attributes.Vigor = increaseDieType(beast.attributes.vigor);
 
     return copy;
   }
