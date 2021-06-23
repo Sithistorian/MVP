@@ -1,3 +1,22 @@
+
+class Being {
+
+  constructor (name, rank, attributes, skills, pace, size) {
+    this.name = name,
+    this.rank = rank,
+    this.attributes = attributes,
+    this.skills = skills,
+    this.pace,
+    this.size
+  }
+
+  getAttribute (attribute) {
+    return this.attributes[attribute]
+  }
+
+}
+
+
 const saphire = {
   name: 'Saphire',
   rank: {rank: 'novice', value: 3},

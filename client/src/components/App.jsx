@@ -41,7 +41,9 @@ class App extends React.Component {
     axios.put(`/Characters?name=${name}&count=${count}`)
       .then(response => {
         console.log(response);
-        this.getCharacter(name);
+        this.setState({
+          spellDuration: count
+        })
       })
       .catch(error => {
         console.error(error);
@@ -50,7 +52,6 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getCharacter('Saphire');
-    this.updateSpellDuration('Saphire', 0);
   }
 
   //Handlers
@@ -94,7 +95,7 @@ class App extends React.Component {
         <div id="attributes"><AttributeList attributes={this.state.character.attributes}/></div>
         <div id="skills"><SkillList skills={this.state.character.skills}/></div>
         <div id="derivedStats"><DerivedStatList derivedStats={this.state.character.derivedStats}/></div>
-        <div id="form"><Dropdown beastAttempt={this.state.beastAttempt} rankTooLow={this.state.rankTooLow} onSubmit={this.onSubmit} options={this.props.beastiary} onChange={this.radioChange} raise={this.state.raise}/></div>
+        <div id="form"><Dropdown beastAttempt={this.state.beastAttempt} rankTooLow={this.state.rankTooLow} onSubmit={this.onSubmit} options={this.props.beastiary} onChange={this.radioChange} raise={this.state.raise} updateSpellDuration={this.updateSpellDuration} characterName={this.state.character.name} spellDuration={this.state.spellDuration} getCharacter={this.getCharacter}/></div>
 
       </div>
     )

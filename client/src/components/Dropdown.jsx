@@ -1,9 +1,12 @@
 import React from 'react';
 import Transformed from './Transformed';
 
-const Dropdown = function ({ options, onSubmit, beastAttempt, rankTooLow, onChange, raise }) {
+const Dropdown = function ({ options, onSubmit, beastAttempt, rankTooLow, onChange, raise, updateSpellDuration, characterName, spellDuration, getCharacter }) {
+
+  let count = spellDuration <= 6 ? spellDuration : 0;
 
   return (
+    <React.Fragment>
     <form onSubmit={onSubmit}>
     <Transformed beastAttempt={beastAttempt} rankTooLow={rankTooLow}/>
     <select id="selectedBeast">
@@ -20,8 +23,16 @@ const Dropdown = function ({ options, onSubmit, beastAttempt, rankTooLow, onChan
       Yes<input type="radio" value={1} checked={raise == 1} onChange={onChange}/>
       No<input type="radio" value={0} checked={raise == 0} onChange={onChange}/>
     </div>
-    {/* <input type /> */}
     </form>
+    Spell Duration - One round = 10 seconds. Spell Lasts 1 minute:
+    <button onClick={(e) => {
+      e.preventDefault();
+      updateSpellDuration(characterName, count + 1)
+      if (count === 6) {
+        getCharacter(characterName);
+      }
+      }}>{count}</button>
+    </React.Fragment>
   )
 }
 
