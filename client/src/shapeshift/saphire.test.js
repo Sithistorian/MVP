@@ -65,6 +65,7 @@ describe('Being class', () => {
   test('getDerivedStat should get the proper derived stat', () => {
     expect(saphire.getDerivedStat('Toughness')).toBe('8');
     expect(saphire.getDerivedStat('Parry')).toBe('4');
+    expect(saphire.getDerivedStat('Load Limit')).toBe('50')
   })
 
 

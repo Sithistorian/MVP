@@ -26,9 +26,11 @@ class Being {
 
     let derivedStats = {};
 
-    derivedStats.Parry = `${2 + (parseInt(this.getSkill('Fighting').substring(1)))/2}`
+    derivedStats.Parry = `${2 + (parseInt(this.getSkill('Fighting').substring(1)))/2}`;
 
-    derivedStats.Toughness = `${2 + (parseInt(this.getAttribute('Vigor').substring(1)))/2}`
+    derivedStats.Toughness = `${2 + (parseInt(this.getAttribute('Vigor').substring(1)))/2}`;
+
+    derivedStats['Load Limit'] = `${5 * (parseInt(this.getAttribute('Strength').substring(1)))}`
 
     return derivedStats;
   }
