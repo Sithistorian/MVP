@@ -33,11 +33,9 @@ class Being {
     return derivedStats;
   }
 
-  getDerivedStats (derivedStat) {
+  getDerivedStat (derivedStat) {
     return this.derivedStats[derivedStat]
   }
-
-
 
 }
 

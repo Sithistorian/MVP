@@ -38,6 +38,10 @@ describe('Being class', () => {
 
   })
 
+  test('New beings should have derived stats', () => {
+    expect(saphire.derivedStats).toMatchObject({Parry: '4', Toughness: '8'})
+  })
+
   test('getAttribute method should get any of the attributes', () => {
     expect(saphire.getAttribute('Smarts')).toBe('d4');
     expect(saphire.getAttribute('Spirit')).toBe('d6');
@@ -57,8 +61,12 @@ describe('Being class', () => {
     expect(saphire.getSkill('Gambling')).toBe('d4 - 2');
   })
 
-  test('Being should have derived stats', () => {
-    expect(saphire.derivedStats).toMatchObject({Parry: '4', Toughness: '8'})
+
+  test('getDerivedStat should get the proper derived stat', () => {
+    expect(saphire.getDerivedStat('Toughness')).toBe('8');
+    expect(saphire.getDerivedStat('Parry')).toBe('4');
   })
+
+
 
 })
