@@ -38,13 +38,23 @@ describe('Being class', () => {
 
   })
 
-  test('New beings getAttribute method should be able to get any of the attributes Agility, Smarts, Strength, Spirit, and Vigor', () => {
+  test('getAttribute method should get any of the attributes', () => {
     expect(saphire.getAttribute('Smarts')).toBe('d4');
     expect(saphire.getAttribute('Spirit')).toBe('d6');
     expect(saphire.getAttribute('Agility')).toBe('d8');
     expect(saphire.getAttribute('Strength')).toBe('d10');
     expect(saphire.getAttribute('Vigor')).toBe('d12');
 
+  })
+
+  test('getSkill method should return the skill die if the being is skilled', () => {
+    expect(saphire.getSkill('Athletics')).toBe('d6');
+    expect(saphire.getSkill('Common Knowledge')).toBe('d4');
+  })
+
+  test('getSkill method should return d4 - 2 if the being is unskilled', () => {
+    expect(saphire.getSkill('Driving')).toBe('d4 - 2');
+    expect(saphire.getSkill('Gambling')).toBe('d4 - 2');
   })
 
 

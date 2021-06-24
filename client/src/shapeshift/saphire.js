@@ -14,6 +14,16 @@ class Being {
     return this.attributes[attribute]
   }
 
+  getSkill (skill) {
+    if (this.skills[skill]) {
+      return this.skills[skill]
+    }
+    return 'd4 - 2'
+  }
+
+
+
+
 }
 
 const saphire = {
