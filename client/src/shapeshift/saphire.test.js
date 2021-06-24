@@ -34,7 +34,7 @@ describe('Being class', () => {
 
   test('New beings should have a rank', () => {
 
-    expect(saphire.rank).toBeOneOf(['Novice', 'Seasoned', 'Veteran', 'Heroic']);
+    expect(saphire.rank).toBeOneOf(['Novice', 'Seasoned', 'Veteran', 'Heroic', 'Legendary']);
 
   })
 
@@ -57,7 +57,8 @@ describe('Being class', () => {
     expect(saphire.getSkill('Gambling')).toBe('d4 - 2');
   })
 
-
-
+  test('Being should have derived stats', () => {
+    expect(saphire.derivedStats).toMatchObject({Parry: '4', Toughness: '8'})
+  })
 
 })
