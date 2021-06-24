@@ -16,7 +16,6 @@ class Being {
 
 }
 
-
 const saphire = {
   name: 'Saphire',
   rank: {rank: 'Novice', value: 3},
