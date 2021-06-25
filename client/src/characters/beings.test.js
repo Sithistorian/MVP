@@ -1,4 +1,4 @@
-const {Being} = require('./saphire.js');
+const {Being} = require('./beings.js');
 
 
 expect.extend({
@@ -23,7 +23,11 @@ expect.extend({
 describe('Being class', () => {
 
   let saphire = new Being('Saphire', 'Novice', {Smarts: 'd4', Spirit: 'd6', Agility: 'd8', Strength: 'd10', Vigor: 'd12'}, {Athletics: 'd6', 'Common Knowledge': 'd4', Notice: 'd4', Persuasion: 'd4', Stealth: 'd6', Focus: 'd6',
-  Theivery: 'd4', Performance: 'd4', Shooting: 'd4', Fighting: 'd4', Intimidation: 'd6', Boating: 'd6'},
+  Theivery: 'd4', Performance: 'd4', Shooting: 'd4', Fighting: 'd4', Intimidation: 'd6', Boating: 'd6'}, 6, 0
+  );
+
+  let leviathan = new Being('Saphire', 'Novice', {Smarts: 'd4', Spirit: 'd6', Agility: 'd8', Strength: 'd10', Vigor: 'd12'}, {Athletics: 'd6', 'Common Knowledge': 'd4', Notice: 'd4', Persuasion: 'd4', Stealth: 'd6', Focus: 'd6',
+  Theivery: 'd4', Performance: 'd4', Shooting: 'd4', Fighting: 'd4', Intimidation: 'd6', Boating: 'd6'}, 6, 10
   );
 
   test('New beings should have a name', () => {
@@ -66,6 +70,7 @@ describe('Being class', () => {
     expect(saphire.getDerivedStat('Toughness')).toBe('8');
     expect(saphire.getDerivedStat('Parry')).toBe('4');
     expect(saphire.getDerivedStat('Load Limit')).toBe('50')
+    expect(leviathan.getDerivedStat('Toughness')).toBe('18 (10)')
   })
 
 

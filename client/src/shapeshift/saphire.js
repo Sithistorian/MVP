@@ -1,46 +1,4 @@
 
-class Being {
-
-  constructor (name, rank, attributes, skills, pace, size) {
-    this.name = name,
-    this.rank = rank,
-    this.attributes = attributes,
-    this.skills = skills,
-    this.size,
-    this.derivedStats = this.calculateDerivedStats()
-  }
-
-  getAttribute (attribute) {
-    return this.attributes[attribute]
-  }
-
-  getSkill (skill) {
-    if (this.skills[skill]) {
-      return this.skills[skill]
-    } else {
-      return 'd4 - 2'
-    }
-  }
-
-  calculateDerivedStats () {
-
-    let derivedStats = {};
-
-    derivedStats.Parry = `${2 + (parseInt(this.getSkill('Fighting').substring(1)))/2}`;
-
-    derivedStats.Toughness = `${2 + (parseInt(this.getAttribute('Vigor').substring(1)))/2}`;
-
-    derivedStats['Load Limit'] = `${5 * (parseInt(this.getAttribute('Strength').substring(1)))}`
-
-    return derivedStats;
-  }
-
-  getDerivedStat (derivedStat) {
-    return this.derivedStats[derivedStat]
-  }
-
-}
-
 const saphire = {
   name: 'Saphire',
   rank: {rank: 'Novice', value: 3},
@@ -52,6 +10,5 @@ const saphire = {
 }
 
 module.exports = {
-  saphire,
-  Being
+  saphire
 }
