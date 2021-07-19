@@ -72,6 +72,19 @@ describe('Hero class', () => {
 
   })
 
+  //Tests for getModifierValue
+
+  test('getModifierValue should return a number', () => {
+    expect(typeof saphire.getModifierValue('d6')).toBe('number')
+  })
+
+  test('getModifierValue should return correct values', () => {
+    expect(saphire.getModifierValue('d6')).toBe(0);
+    expect(saphire.getModifierValue('d8 (5)')).toBe(5);
+    expect(saphire.getModifierValue('d10 (9)')).toBe(9);
+    expect(saphire.getModifierValue('d12 (13)')).toBe(13);
+  })
+
   //Tests for getAttributeValue
 
   test('getAttributeValue should get correct values', () => {

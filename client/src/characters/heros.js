@@ -39,6 +39,21 @@ class Hero extends Being {
 
   }
 
+  //here die could look like d4 (10)
+  getModifierValue(die) {
+
+    let modifier = die.substring(die.length - 4);
+
+    if (modifier.length === 2 || modifier.length === 3) {
+      return 0;
+    } else if (modifier[0] === ' ') {
+      return parseInt(modifier.substring(2));
+    } else if (modifier[0] === '(') {
+      return parseInt(modifier.substring(1, 3));
+    }
+
+  }
+
   getAttributeValue (attributeName) {
 
     let attribute = this.getAttribute(attributeName);
@@ -50,15 +65,7 @@ class Hero extends Being {
   getAttributeModifierValue (attributeName) {
     let attribute = this.getAttribute(attributeName);
 
-    let modifier = attribute.substring(attribute.length - 4);
-
-    if (modifier.length === 2 || modifier.length === 3) {
-      return 0;
-    } else if (modifier[0] === ' ') {
-      return parseInt(modifier.substring(2));
-    } else if (modifier[0] === '(') {
-      return parseInt(modifier.substring(1, 3));
-    }
+   return this.getModifierValue(attribute);
   }
 
   modifyAttribute (attributeName, num) {
