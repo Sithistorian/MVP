@@ -16,28 +16,34 @@ class Hero extends Being {
     this.derivedStats = this.createDerivedStats()
   }
 
-  getAttributeValue (attributeName) {
+  getDieValue(die) {
 
     let noModifier = /d[4-8]|d\d\d/g;
     let singleWithModifier = /d[4-8] \(\d\)/g;
     let doubleWithModifer = /d\d\d \(\d\d\)/g;
 
-    let attribute = this.getAttribute(attributeName);
+    if (singleWithModifier.test(die)) {
 
-    if (singleWithModifier.test(attribute)) {
+      return parseInt(die.substring(1, 2))
 
-      return parseInt(attribute.substring(1, 2))
+    } else if (doubleWithModifer.test(die)) {
 
-    } else if (doubleWithModifer.test(attribute)) {
+      return parseInt(die.substring(1, 3))
 
-      return parseInt(attribute.substring(1, 3))
+    } else if (noModifier.test(die)) {
 
-    } else if (noModifier.test(attribute)) {
-
-      return parseInt(attribute.substring(1));
+      return parseInt(die.substring(1));
 
     }
 
+
+  }
+
+  getAttributeValue (attributeName) {
+
+    let attribute = this.getAttribute(attributeName);
+
+    return this.getDieValue(attribute)
 
   }
 
@@ -59,6 +65,13 @@ class Hero extends Being {
 
     return `d${this.getAttributeValue(attributeName)} (${this.getAttributeModifierValue(attributeName) + num})`
   }
+
+  getSkillValue (skillName) {
+
+
+
+  }
+
 
 
 }
