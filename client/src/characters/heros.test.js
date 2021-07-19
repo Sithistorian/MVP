@@ -58,6 +58,20 @@ describe('Hero class', () => {
     expect(saphire.derivedStats).toStrictEqual({Parry: '4', Toughness: '8', 'Load Limit': '50'})
   })
 
+  //Tests for getDieValue
+
+  test('getDieValue should return a number', () => {
+    expect(typeof saphire.getDieValue('d4')).toBe('number');
+  })
+
+  test('getDieValue should get correct results', () => {
+    expect(saphire.getDieValue('d4')).toBe(4);
+    expect(saphire.getDieValue('d10 (8)')).toBe(10);
+    expect(saphire.getDieValue('d20 (12)')).toBe(20);
+    expect(saphire.getDieValue('d10 (2)')).toBe(10);
+
+  })
+
   //Tests for getAttributeValue
 
   test('getAttributeValue should get correct values', () => {
