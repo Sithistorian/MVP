@@ -5,7 +5,7 @@ describe('Hero class', () => {
   let saphire = new Hero('Saphire', 'Novice', {Smarts: 'd4', Spirit: 'd6', Agility: 'd8', Strength: 'd10', Vigor: 'd12'}, {Athletics: 'd6', 'Common Knowledge': 'd4', Notice: 'd4', Persuasion: 'd4', Stealth: 'd6', Focus: 'd6', Theivery: 'd4', Performance: 'd4', Shooting: 'd4', Fighting: 'd4', Intimidation: 'd6', Boating: 'd6'}, 6, 0, ['Attractive'], ['Blind'], 'Changling', ['Chainmail']
   );
 
-  let leviathan = new Hero('Leviathan', 'Novice', {Smarts: 'd4', Spirit: 'd6', Agility: 'd8 (4)', Strength: 'd20 (10)', Vigor: 'd12'}, {Athletics: 'd6', 'Common Knowledge': 'd4', Notice: 'd4', Persuasion: 'd4', Stealth: 'd6', Focus: 'd6', Theivery: 'd4', Performance: 'd4', Shooting: 'd4', Fighting: 'd4', Intimidation: 'd6', Boating: 'd6'}, 6, 0, ['Attractive'], ['Blind'], 'Beast', ['Chainmail']
+  let leviathan = new Hero('Leviathan', 'Novice', {Smarts: 'd4', Spirit: 'd6', Agility: 'd8 (4)', Strength: 'd20 (10)', Vigor: 'd12'}, {Athletics: 'd6', 'Common Knowledge': 'd4', Notice: 'd4', Persuasion: 'd4', Stealth: 'd6', Focus: 'd6', Theivery: 'd4 (9)', Performance: 'd4', Shooting: 'd4', Fighting: 'd10 (12)', Intimidation: 'd6', Boating: 'd6'}, 6, 0, ['Attractive'], ['Blind'], 'Beast', ['Chainmail']
   );
 
   test('Hero should have names', () => {
@@ -98,6 +98,15 @@ describe('Hero class', () => {
   test('modifyAttribute should add a modifier to the existing modifier', () => {
     expect(leviathan.modifyAttribute('Agility', 2)).toBe('d8 (6)')
     expect(leviathan.modifyAttribute('Strength', 12)).toBe('d20 (22)');
+  })
+
+  //Tests for getSkillValue
+
+  test('getSkillValue should return the correct skill value', () => {
+    expect(saphire.getSkillValue('Performance')).toBe(4);
+    expect(saphire.getSkillValue('Boating')).toBe(6);
+    expect(leviathan.getSkillValue('Theivery')).toBe(4);
+    expect(leviathan.getSkillValue('Fighting')).toBe(10);
   })
 
 

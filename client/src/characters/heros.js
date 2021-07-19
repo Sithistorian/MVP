@@ -43,7 +43,7 @@ class Hero extends Being {
 
     let attribute = this.getAttribute(attributeName);
 
-    return this.getDieValue(attribute)
+    return this.getDieValue(attribute);
 
   }
 
@@ -68,12 +68,11 @@ class Hero extends Being {
 
   getSkillValue (skillName) {
 
+    let skill = this.getSkill(skillName);
 
+    return this.getDieValue(skill);
 
   }
-
-
-
 }
 
 module.exports = {

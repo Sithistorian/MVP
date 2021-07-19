@@ -61,8 +61,8 @@ describe('Being class', () => {
   })
 
   test('getSkill method should return d4 - 2 if the being is unskilled', () => {
-    expect(saphire.getSkill('Driving')).toBe('d4 - 2');
-    expect(saphire.getSkill('Gambling')).toBe('d4 - 2');
+    expect(saphire.getSkill('Driving')).toBe('d4 (-2)');
+    expect(saphire.getSkill('Gambling')).toBe('d4 (-2)');
   })
 
 

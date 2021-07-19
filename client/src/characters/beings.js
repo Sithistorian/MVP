@@ -14,11 +14,11 @@ class Being {
     return this.attributes[attribute]
   }
 
-  getSkill (skill) {
-    if (this.skills[skill]) {
-      return this.skills[skill]
+  getSkill (skillName) {
+    if (this.skills[skillName]) {
+      return this.skills[skillName]
     } else {
-      return 'd4 - 2'
+      return 'd4 (-2)'
     }
   }
 
