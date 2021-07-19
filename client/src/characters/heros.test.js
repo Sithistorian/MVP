@@ -2,11 +2,47 @@ const {Hero} = require('./heros.js');
 
 describe('Hero class', () => {
 
-  let saphire = new Hero('Saphire', 'Novice', {Smarts: 'd4', Spirit: 'd6', Agility: 'd8', Strength: 'd10', Vigor: 'd12'}, {Athletics: 'd6', 'Common Knowledge': 'd4', Notice: 'd4', Persuasion: 'd4', Stealth: 'd6', Focus: 'd6', Theivery: 'd4', Performance: 'd4', Shooting: 'd4', Fighting: 'd4', Intimidation: 'd6', Boating: 'd6'}, 6, 0, ['Attractive']
+  let saphire = new Hero('Saphire', 'Novice', {Smarts: 'd4', Spirit: 'd6', Agility: 'd8', Strength: 'd10', Vigor: 'd12'}, {Athletics: 'd6', 'Common Knowledge': 'd4', Notice: 'd4', Persuasion: 'd4', Stealth: 'd6', Focus: 'd6', Theivery: 'd4', Performance: 'd4', Shooting: 'd4', Fighting: 'd4', Intimidation: 'd6', Boating: 'd6'}, 6, 0, ['Attractive'], ['Blind'], 'Changling', ['Chainmail']
   );
 
   test('Hero should have names', () => {
     expect(saphire.name).toBe('Saphire');
+  })
+
+  test('Hero should have rank', () => {
+    expect(saphire.rank).toBe('Novice');
+  })
+
+  test('Hero should have attributes', () => {
+    expect(saphire.attributes).toStrictEqual({Smarts: 'd4', Spirit: 'd6', Agility: 'd8', Strength: 'd10', Vigor: 'd12'});
+  })
+
+  test('Hero should have skills', () => {
+    expect(saphire.skills).toStrictEqual({Athletics: 'd6', 'Common Knowledge': 'd4', Notice: 'd4', Persuasion: 'd4', Stealth: 'd6', Focus: 'd6', Theivery: 'd4', Performance: 'd4', Shooting: 'd4', Fighting: 'd4', Intimidation: 'd6', Boating: 'd6'});
+  })
+
+  test('Hero should have pace', () => {
+    expect(saphire.pace).toBe(6);
+  })
+
+  test('Hero should have size', () => {
+    expect(saphire.size).toBe(0);
+  })
+
+  test('Hero should have race', () => {
+    expect(saphire.race).toBe('Changling');
+  })
+
+  test('Hero should have gear', () => {
+    expect(saphire.gear).toStrictEqual(['Chainmail']);
+  })
+
+  test('Hero should have edges', () => {
+    expect(saphire.edges).toStrictEqual(['Attractive']);
+  })
+
+  test('Hero should have size', () => {
+    expect(saphire.hinderances).toStrictEqual(['Blind']);
   })
 
   test('Hero should inherit methods from Being', () => {
