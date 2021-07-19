@@ -53,22 +53,11 @@ class Hero extends Being {
     } else if (modifier[0] === '(') {
       return parseInt(modifier.substring(1, 3));
     }
-
   }
 
-  modifyAttribute (attribute, num) {
-    let baseDie = this.attributes[attribute];
+  modifyAttribute (attributeName, num) {
 
-    //regex for d6 (2) or d20 (14) type cases
-    let dieRegex = /d[1-9][0-9] \([0-9]|[0-9][0-9]\)|d[4-8] \(\d\)/g;
-
-    if (!dieRegex.test(baseDie)) {
-      let baseValue = baseDie.substring(1);
-      this.attributes[attribute] = `d${baseValue + num} (${num})`
-    } else {
-
-
-    }
+    return `d${this.getAttributeValue(attributeName)} (${this.getAttributeModifierValue(attributeName) + num})`
   }
 
 

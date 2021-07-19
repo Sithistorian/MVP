@@ -75,4 +75,16 @@ describe('Hero class', () => {
     expect(leviathan.getAttributeModifierValue('Agility')).toBe(4);
   })
 
+  //Tests for modifyAttribute
+
+  test('modifyAttribute should add a modifier if none already exists', () => {
+    expect(saphire.modifyAttribute('Spirit', -2)).toBe('d6 (-2)')
+  })
+
+  test('modifyAttribute should add a modifier to the existing modifier', () => {
+    expect(leviathan.modifyAttribute('Agility', 2)).toBe('d8 (6)')
+    expect(leviathan.modifyAttribute('Strength', 12)).toBe('d20 (22)');
+  })
+
+
 })
