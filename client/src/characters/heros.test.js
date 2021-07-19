@@ -5,7 +5,7 @@ describe('Hero class', () => {
   let saphire = new Hero('Saphire', 'Novice', {Smarts: 'd4', Spirit: 'd6', Agility: 'd8', Strength: 'd10', Vigor: 'd12'}, {Athletics: 'd6', 'Common Knowledge': 'd4', Notice: 'd4', Persuasion: 'd4', Stealth: 'd6', Focus: 'd6', Theivery: 'd4', Performance: 'd4', Shooting: 'd4', Fighting: 'd4', Intimidation: 'd6', Boating: 'd6'}, 6, 0, ['Attractive'], ['Blind'], 'Changling', ['Chainmail']
   );
 
-  let leviathan = new Hero('Leviathan', 'Novice', {Smarts: 'd4', Spirit: 'd6', Agility: 'd8 (4)', Strength: 'd20 (6)', Vigor: 'd12'}, {Athletics: 'd6', 'Common Knowledge': 'd4', Notice: 'd4', Persuasion: 'd4', Stealth: 'd6', Focus: 'd6', Theivery: 'd4', Performance: 'd4', Shooting: 'd4', Fighting: 'd4', Intimidation: 'd6', Boating: 'd6'}, 6, 0, ['Attractive'], ['Blind'], 'Beast', ['Chainmail']
+  let leviathan = new Hero('Leviathan', 'Novice', {Smarts: 'd4', Spirit: 'd6', Agility: 'd8 (4)', Strength: 'd20 (10)', Vigor: 'd12'}, {Athletics: 'd6', 'Common Knowledge': 'd4', Notice: 'd4', Persuasion: 'd4', Stealth: 'd6', Focus: 'd6', Theivery: 'd4', Performance: 'd4', Shooting: 'd4', Fighting: 'd4', Intimidation: 'd6', Boating: 'd6'}, 6, 0, ['Attractive'], ['Blind'], 'Beast', ['Chainmail']
   );
 
   test('Hero should have names', () => {
@@ -65,6 +65,14 @@ describe('Hero class', () => {
     expect(saphire.getAttributeValue('Strength')).toBe(10);
     expect(leviathan.getAttributeValue('Strength')).toBe(20);
     expect(leviathan.getAttributeValue('Agility')).toBe(8);
+  })
+
+  //Tests for getAttributeModifierValue
+
+  test('getAttributeModifierValue should return correct values', () => {
+    expect(saphire.getAttributeModifierValue('Agility')).toBe(0);
+    expect(leviathan.getAttributeModifierValue('Strength')).toBe(10);
+    expect(leviathan.getAttributeModifierValue('Agility')).toBe(4);
   })
 
 })
