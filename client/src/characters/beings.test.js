@@ -130,12 +130,17 @@ describe('Being class', () => {
   //Tests for modifyAttribute
 
   test('modifyAttribute should add a modifier if none already exists', () => {
-    expect(saphire.modifyAttribute('Spirit', -2)).toBe('d6 (-2)')
+    saphire.modifyAttribute('Spirit', -2)
+    expect(saphire.getAttribute('Spirit')).toBe('d6 (-2)')
   })
 
   test('modifyAttribute should add a modifier to the existing modifier', () => {
-    expect(leviathan.modifyAttribute('Agility', 2)).toBe('d8 (6)')
-    expect(leviathan.modifyAttribute('Strength', 12)).toBe('d20 (22)');
+    leviathan.modifyAttribute('Agility', 2);
+    expect(leviathan.getAttribute('Agility')).toBe('d8 (6)');
+    leviathan.modifyAttribute('Strength', 12);
+    expect(leviathan.getAttribute('Strength')).toBe('d20 (22)');
+    leviathan.modifyAttribute('Strength', 3);
+    expect(leviathan.getAttribute('Strength')).toBe('d20 (25)');
   })
 
   //Tests for getSkillValue

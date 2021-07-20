@@ -107,7 +107,7 @@ class Being {
 
   modifyAttribute (attributeName, num) {
 
-    return `d${this.getAttributeValue(attributeName)} (${this.getAttributeModifierValue(attributeName) + num})`
+    this.attributes[attributeName] = `d${this.getAttributeValue(attributeName)} (${this.getAttributeModifierValue(attributeName) + num})`
   }
 
 }

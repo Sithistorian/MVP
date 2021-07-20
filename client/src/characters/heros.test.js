@@ -52,6 +52,15 @@ describe('Hero class', () => {
     expect(saphire.getAttribute('Vigor')).toBe('d12');
     expect(saphire.getSkill('Notice')).toBe('d4');
     expect(saphire.getDerivedStat('Parry')).toBe('4')
+    expect(saphire.getDieValue('d8')).toBe(8);
+    expect(saphire.getModifierValue('d8 (5)')).toBe(5);
+    expect(saphire.getAttributeValue('Strength')).toBe(10);
+    expect(saphire.getAttributeModifierValue('Strength')).toBe(0);
+    expect(leviathan.getSkillValue('Fighting')).toBe(10);
+    expect(leviathan.getSkillModifierValue('Fighting')).toBe(12);
+
+    saphire.modifyAttribute('Strength', 3);
+    expect(saphire.getAttribute('Strength')).toBe('d10 (3)');
   })
 
   test('Heros should have derivedStats', () => {
