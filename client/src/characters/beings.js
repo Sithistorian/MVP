@@ -110,6 +110,10 @@ class Being {
     this.attributes[attributeName] = `d${this.getAttributeValue(attributeName)} (${this.getAttributeModifierValue(attributeName) + num})`
   }
 
+  modifySkill (skillName, num) {
+    this.skills[skillName] = `d${this.getSkillValue(skillName)} (${this.getSkillModifierValue(skillName) + num})`
+  }
+
 }
 
 module.exports = {

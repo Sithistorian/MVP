@@ -109,6 +109,15 @@ describe('Being class', () => {
     expect(leviathan.getAttributeValue('Agility')).toBe(8);
   })
 
+    //Tests for getSkillValue
+
+    test('getSkillValue should return the correct skill value', () => {
+      expect(saphire.getSkillValue('Performance')).toBe(4);
+      expect(saphire.getSkillValue('Boating')).toBe(6);
+      expect(leviathan.getSkillValue('Theivery')).toBe(4);
+      expect(leviathan.getSkillValue('Fighting')).toBe(10);
+    })
+
   //Tests for getAttributeModifierValue
 
   test('getAttributeModifierValue should return correct values', () => {
@@ -143,15 +152,20 @@ describe('Being class', () => {
     expect(leviathan.getAttribute('Strength')).toBe('d20 (25)');
   })
 
-  //Tests for getSkillValue
+  //Tests for modifySkill
 
-  test('getSkillValue should return the correct skill value', () => {
-    expect(saphire.getSkillValue('Performance')).toBe(4);
-    expect(saphire.getSkillValue('Boating')).toBe(6);
-    expect(leviathan.getSkillValue('Theivery')).toBe(4);
-    expect(leviathan.getSkillValue('Fighting')).toBe(10);
+  test('modifySkill should add a modifier if one does not already exist', () => {
+    saphire.modifySkill('Fighting', 5);
+    expect(saphire.getSkill('Fighting')).toBe('d4 (5)')
   })
 
-
+  test('modifySkill should add a modifier to the existing modifier', () => {
+    leviathan.modifySkill('Theivery', 2);
+    expect(leviathan.getSkill('Theivery')).toBe('d4 (11)');
+    leviathan.modifySkill('Fighting', 12);
+    expect(leviathan.getSkill('Fighting')).toBe('d10 (24)');
+    leviathan.modifySkill('Fighting', 3);
+    expect(leviathan.getSkill('Fighting')).toBe('d10 (27)');
+  })
 
 })
